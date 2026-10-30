@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ServicesPage3 from "@/components/home3/ServicesPage3";
+import ServicesIndexPage from "@/components/services/ServicesIndexPage";
 import { SITE_URL } from "@/lib/seo";
 
 const title = "Our Services | Direct Tyre Solutions";
@@ -25,5 +25,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ServicesPage3 />;
+  return <ServicesIndexPage />;
 }

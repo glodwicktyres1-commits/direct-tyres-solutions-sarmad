@@ -8,6 +8,7 @@ import { Menu, PhoneCall, X } from "lucide-react";
 import { navLinks3, siteConfig3 } from "@/lib/site-data3";
 import { AreasMegaMenuDesktop, AreasMegaMenuMobile } from "@/components/AreasMegaMenu";
 import { locationAreas } from "@/lib/locations-data";
+import { ServicesMenuDesktop, ServicesMenuMobile } from "@/components/ServicesMenu";
 
 export default function Header3() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,6 +34,8 @@ export default function Header3() {
           {navLinks3.map((link) =>
             link.label === "Areas We Cover" ? (
               <AreasMegaMenuDesktop key={link.label} currentSlug={currentSlug} phone={siteConfig3.phone} />
+            ) : link.label === "Services" ? (
+              <ServicesMenuDesktop key={link.label} currentPath={pathname} />
             ) : (
               <a
                 key={link.label}
@@ -88,6 +91,12 @@ export default function Header3() {
                 <AreasMegaMenuMobile
                   key={link.label}
                   currentSlug={currentSlug}
+                  onNavigate={() => setMenuOpen(false)}
+                />
+              ) : link.label === "Services" ? (
+                <ServicesMenuMobile
+                  key={link.label}
+                  currentPath={pathname}
                   onNavigate={() => setMenuOpen(false)}
                 />
               ) : (

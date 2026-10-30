@@ -14,6 +14,18 @@
   --color-text-muted: #666666;
   --color-border-color: #e5e7eb;
 
+  /* Service pages (/services/*) — exact tokens from the approved Lovable design */
+  --color-svc-navy: oklch(24% 0.06 265);
+  --color-svc-deep: oklch(18% 0.05 265);
+  --color-svc-yellow: oklch(88% 0.18 95);
+  --color-svc-cream: oklch(96% 0.06 95);
+  --color-svc-bg: oklch(98.5% 0.004 265);
+  --color-svc-fg: #0b152d; /* oklch(20% 0.05 265) as rendered, avoids a 1-unit rounding drift */
+  --color-svc-card: oklch(100% 0 0);
+  --color-svc-muted: oklch(50% 0.03 265);
+  --color-svc-border: oklch(91% 0.015 265);
+  --color-svc-light: oklch(98% 0 0);
+
   --font-sans: var(--font-sans), sans-serif;
   --font-heading: var(--font-heading), sans-serif;
   --font-mono: var(--font-mono), monospace;
@@ -147,4 +159,9 @@
   .draw-line.active {
     stroke-dashoffset: 0;
   }
+}
+
+/* Service pages: Archivo display font (variable is set on the page wrapper by next/font) */
+.font-svc {
+  font-family: var(--font-archivo), sans-serif;
 }

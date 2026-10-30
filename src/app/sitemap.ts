@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locationAreas } from "@/lib/locations-data";
 import { SITE_URL } from "@/lib/seo";
+import { servicePages } from "@/lib/services-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -38,6 +39,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const serviceRoutes: MetadataRoute.Sitemap = Object.keys(servicePages).map((slug) => ({
+    url: `${SITE_URL}/services/${slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   const locationRoutes: MetadataRoute.Sitemap = locationAreas.map((area) => ({
     url: `${SITE_URL}${area.href}`,
     lastModified,
@@ -45,5 +53,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: "main" in area && area.main ? 0.9 : 0.7,
   }));
 
-  return [...staticRoutes, ...locationRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...locationRoutes];
 }
